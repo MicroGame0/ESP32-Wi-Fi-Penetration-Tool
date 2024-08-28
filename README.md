@@ -1,8 +1,8 @@
-# ESP32 Wi-Fi Penetration Tool
+# ESP32S3 Wi-Fi Penetration Tool
 
-This project introduces a universal tool for the ESP32 platform for implementing various Wi-Fi attacks. It provides some common functionality that is commonly used in Wi-Fi attacks and makes implementing new attacks a bit simpler. It also includes Wi-Fi attacks itself like capturing PMKIDs from handshakes, or handshakes themselves by different methods like starting rogue duplicated AP or sending deauthentication frames directly, etc...
+This project introduces a universal tool for the ESP32S3 platform for implementing various Wi-Fi attacks. It provides some common functionality that is commonly used in Wi-Fi attacks and makes implementing new attacks a bit simpler. It also includes Wi-Fi attacks itself like capturing PMKIDs from handshakes, or handshakes themselves by different methods like starting rogue duplicated AP or sending deauthentication frames directly, etc...
 
-Obviously cracking is not part of this project, as the ESP32 is not sufficient to crack hashes in effective way. The rest can be done on a small, cheap, low-power SoC.
+Obviously cracking is not part of this project, as the ESP32S3 is not sufficient to crack hashes in effective way. The rest can be done on a small, cheap, low-power SoC.
 
 <p align="center">
     <img src="doc/images/logo.png" alt="Logo">
@@ -21,8 +21,8 @@ Obviously cracking is not part of this project, as the ESP32 is not sufficient t
 - And more...
 
 # Usage
-1) [Build](#Build) and [Flash](#Flashing) the project onto an ESP32 (DevKit or module)
-2) Power the ESP32 module and press the Reset button. If you're using a Flipper Zero Wifi Dev board this is done VIA the GPIO of the Flipper Zero
+1) [Build](#Build) and [Flash](#Flashing) the project onto an ESP32S3 (DevKit or module)
+2) Power the ESP32S3 module and press the Reset button. If you're using a Flipper Zero Wifi Dev board this is done VIA the GPIO of the Flipper Zero
 3) The management AP will be started automatically after boot
 4) Connect to this AP\
 **Default Configuration:**\
@@ -36,10 +36,10 @@ Obviously cracking is not part of this project, as the ESP32 is not sufficient t
 - This project has been tested with **ESP-IDF 4.4**
 - ***Warning: It may be broken on a newer version of ESP-IDF.***
 
-1) You must have [`ESP-IDF`](https://docs.espressif.com/projects/esp-idf/en/stable/esp32s2/get-started/index.html#step-1-install-prerequisites) to build this project
+1) You must have [`ESP-IDF`](https://docs.espressif.com/projects/esp-idf/en/stable/ESP32S3s2/get-started/index.html#step-1-install-prerequisites) to build this project
 2) If you're building for the `Flipper Zero Wifi Dev Board` you will need to first set the chip target. Otherwise skip this step and move to Step 3.
 ```
-idf.py set-target esp32s2
+idf.py set-target ESP32S3s2
 ```
 3) You can build the project by navigating to the project directory and running:
 ```shell
@@ -56,37 +56,37 @@ The easiest method of flashing is using the pre-built binaries included in the r
 ***Some anti-virus programs will detect the ESPTool as a virus and remove it. It is 100% safe however if you would prefer you can get the original from Espressif's github. [ESPTool Download](https://github.com/espressif/esptool/releases/)***
 
 ### Windows
-1) Download the appropriate release for your OS from the [`latest releases`](https://github.com/FroggMaster/ESP32-Wi-Fi-Penetration-Tool/releases/) and extract the ZIP contents to a folder 
-2) Put your ESP32 into download mode by holding the **BOOT** button while plugging it into the PC.
+1) Download the appropriate release for your OS from the [`latest releases`](https://github.com/FroggMaster/ESP32S3-Wi-Fi-Penetration-Tool/releases/) and extract the ZIP contents to a folder 
+2) Put your ESP32S3 into download mode by holding the **BOOT** button while plugging it into the PC.
 4) Run the included `flash.bat` script within the ZIP file.
-5) Continue to [Step 2 in Usage](#Usage) for further instructions on how to use the **ESP32 Wi-Fi Penetration Tool**
+5) Continue to [Step 2 in Usage](#Usage) for further instructions on how to use the **ESP32S3 Wi-Fi Penetration Tool**
 
-**KNOWN ISSUE:** ***Windows 11 will display a false unhandled exception error. This can be ignored the firmware will still flash to the ESP32 successfully 
-More information can be here:*** [False Unhandled Exception Error on Windows 11](https://github.com/FroggMaster/ESP32-Wi-Fi-Penetration-Tool/issues/2)
+**KNOWN ISSUE:** ***Windows 11 will display a false unhandled exception error. This can be ignored the firmware will still flash to the ESP32S3 successfully 
+More information can be here:*** [False Unhandled Exception Error on Windows 11](https://github.com/FroggMaster/ESP32S3-Wi-Fi-Penetration-Tool/issues/2)
 
 ### Linux
-1) Download the appropriate release for your OS from the [`latest releases`](https://github.com/FroggMaster/ESP32-Wi-Fi-Penetration-Tool/releases/) and extract the ZIP contents to a folder 
+1) Download the appropriate release for your OS from the [`latest releases`](https://github.com/FroggMaster/ESP32S3-Wi-Fi-Penetration-Tool/releases/) and extract the ZIP contents to a folder 
 2) Ensure you set ESPTool as executable by running `chmod +x ./esptool` from the directory you extracted the release to. 
 3) Ensure you set flash.sh as executable by running `chmod +x ./flash.sh` from the directory you extracted the release to. 
-4) Put your ESP32 into download mode by holding the **BOOT** button while plugging it into the PC.
+4) Put your ESP32S3 into download mode by holding the **BOOT** button while plugging it into the PC.
 5) Run the included flashing script VIA `./flash.sh`
-6) Continue to [Step 2 in Usage](#Usage) for further instructions on how to use the **ESP32 Wi-Fi Penetration Tool**
+6) Continue to [Step 2 in Usage](#Usage) for further instructions on how to use the **ESP32S3 Wi-Fi Penetration Tool**
 
 ### Mac
-1) Download the appropriate release for your OS from the [`latest releases`](https://github.com/FroggMaster/ESP32-Wi-Fi-Penetration-Tool/releases/) and extract the ZIP contents to a folder 
+1) Download the appropriate release for your OS from the [`latest releases`](https://github.com/FroggMaster/ESP32S3-Wi-Fi-Penetration-Tool/releases/) and extract the ZIP contents to a folder 
 2) Ensure you set ESPTool as executable by running `chmod +x ./esptool` from the directory you extracted the release to. 
 3) Ensure you set flash.sh as executable by running `chmod +x ./flash.sh` from the directory you extracted the release to. 
-4) Put your ESP32 into download mode by holding the **BOOT** button while plugging it into the PC.
+4) Put your ESP32S3 into download mode by holding the **BOOT** button while plugging it into the PC.
 5) Run the included flashing script `./flash.sh`
-6) Continue to [Step 2 in Usage](#Usage) for further instructions on how to use the **ESP32 Wi-Fi Penetration Tool**
+6) Continue to [Step 2 in Usage](#Usage) for further instructions on how to use the **ESP32S3 Wi-Fi Penetration Tool**
 
 ## Manual Methods of Flashing 
 - The below methods really aren't neccesary. With the included flashing scripts in the release section you can easily flash your own builds;however the instructions are here if you want to follow them. :) 
 
 ### ESP-IDF 
-- If you have setup [`ESP-IDF`](https://docs.espressif.com/projects/esp-idf/en/stable/esp32s2/get-started/index.html#step-1-install-prerequisites), the easiest method of manual flashing is running `idf.py -p <PORT> flash` from the project directory replace `<PORT>` with the serial port your ESP32 is connected to.
+- If you have setup [`ESP-IDF`](https://docs.espressif.com/projects/esp-idf/en/stable/ESP32S3s2/get-started/index.html#step-1-install-prerequisites), the easiest method of manual flashing is running `idf.py -p <PORT> flash` from the project directory replace `<PORT>` with the serial port your ESP32S3 is connected to.
 
-1) Put you ESP32 into download mode by holding the **BOOT** button while plugging it into the PC
+1) Put you ESP32S3 into download mode by holding the **BOOT** button while plugging it into the PC
 2) Run the following command
 ```
 idf.py -p <PORT> flash
@@ -94,28 +94,28 @@ idf.py -p <PORT> flash
 
 ### Windows
 1) Download [`esptool`](https://github.com/espressif/esptool)
-2) Put you ESP32 into download mode by holding the BOOT button while plugging it into the PC
-3) You can flash the project with the following command replacing `COM4` with the serial port your ESP32 is connected to. 
+2) Put you ESP32S3 into download mode by holding the BOOT button while plugging it into the PC
+3) You can flash the project with the following command replacing `COM4` with the serial port your ESP32S3 is connected to. 
 ```python
-esptool.exe -p COM4 -b 115200 --after hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size detect 0x8000 build/partition_table/partition-table.bin 0x1000 build/bootloader/bootloader.bin 0x10000 build/esp32-wifi-penetration-tool.bin
+esptool.exe -p COM4 -b 115200 --after hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size detect 0x8000 build/partition_table/partition-table.bin 0x1000 build/bootloader/bootloader.bin 0x10000 build/ESP32S3-wifi-penetration-tool.bin
 ```
 
 ### Linux 
 1) Download [`esptool`](https://github.com/espressif/esptool)
 2) Ensure you set ESPTool as executable by running `chmod +x ./esptool.py` from the directory you saved ESPTool to. 
-3) Put you ESP32 into download mode by holding the BOOT button while plugging it into the PC
-4) You can flash the project with the following command replacing `ttyS5` with the serial port your ESP32 is connected to. 
+3) Put you ESP32S3 into download mode by holding the BOOT button while plugging it into the PC
+4) You can flash the project with the following command replacing `ttyS5` with the serial port your ESP32S3 is connected to. 
 ```python
-esptool.py -p /dev/ttyS5 -b 115200 --after hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size detect 0x8000 build/partition_table/partition-table.bin 0x1000 build/bootloader/bootloader.bin 0x10000 build/esp32-wifi-penetration-tool.bin
+esptool.py -p /dev/ttyS5 -b 115200 --after hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size detect 0x8000 build/partition_table/partition-table.bin 0x1000 build/bootloader/bootloader.bin 0x10000 build/ESP32S3-wifi-penetration-tool.bin
 ```
 
 ### MAC OS
 1) Download [`esptool`](https://github.com/espressif/esptool)
 2) Ensure you set ESPTool as executable by running `chmod +x ./esptool.py` from the directory you saved ESPTool to. 
-3) Put you ESP32 into download mode by holding the BOOT button while plugging it into the PC
-4) You can flash the project with the following command replacing `tty.usbserial` with the serial port your ESP32 is connected to. 
+3) Put you ESP32S3 into download mode by holding the BOOT button while plugging it into the PC
+4) You can flash the project with the following command replacing `tty.usbserial` with the serial port your ESP32S3 is connected to. 
 ```python
-esptool.py -p /dev/tty.usbserial -b 115200 --after hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size detect 0x8000 build/partition_table/partition-table.bin 0x1000 build/bootloader/bootloader.bin 0x10000 build/esp32-wifi-penetration-tool.bin
+esptool.py -p /dev/tty.usbserial -b 115200 --after hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size detect 0x8000 build/partition_table/partition-table.bin 0x1000 build/bootloader/bootloader.bin 0x10000 build/ESP32S3-wifi-penetration-tool.bin
 ```
 
 # Documentation
@@ -137,11 +137,11 @@ This project consists of multiple components, that can be reused in other projec
 - [**HCCAPX Serializer**](components/hccapx_serializer) component serializes captured frames into HCCAPX binary format and provides it to other components (mostly for the webserver/UI)
 
 ### Power consumption
-- Based on experimental measurements, the ESP32 consumes around 100mA during attack executions. 
+- Based on experimental measurements, the ESP32S3 consumes around 100mA during attack executions. 
 
 ## Contributing
 - Feel free to contribute. Don't hestitate to refactor current code base. Please stick to Doxygen notation when commenting new functions and files. This project is mainly build for educational and demonstration purposes, so verbose documentation is welcome.
 
 ## Disclaimer
-- This project demonstrates vulnerabilities of Wi-Fi networks and its underlaying 802.11 standard and how ESP32 platform can be utilised to attack on those vulnerable spots. Use responsibly against networks you have permission to attack on.
+- This project demonstrates vulnerabilities of Wi-Fi networks and its underlaying 802.11 standard and how ESP32S3 platform can be utilised to attack on those vulnerable spots. Use responsibly against networks you have permission to attack on.
  
